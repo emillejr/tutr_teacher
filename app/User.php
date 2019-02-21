@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Institution;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -30,4 +32,9 @@ class User extends Authenticatable
 
 
     protected $table = 'teachers';
+
+    public function institution() {
+        return $this->belongsTo(Institution::class);
+    }
+
 }

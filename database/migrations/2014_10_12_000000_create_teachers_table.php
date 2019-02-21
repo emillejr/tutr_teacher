@@ -21,6 +21,9 @@ class CreateTeachersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedInteger('institution_id');
+
+            $table->foreign('institution_id')->references('id')->on('institutions');
         });
     }
 
