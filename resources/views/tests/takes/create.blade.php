@@ -91,18 +91,9 @@
                             @foreach ($questions as $question)
                             <div class="block block-rounded">
                                 <div class="block-content">
-                                    <table class="table table-borderless table-vcenter mb-30">
-                                        <tbody>
-                                            <tr class="table-active">
-                                                <th class="text-right" style="width: 50px;">{{$question->number}}.</th>
-                                                <th colspan="2">{!!$question->sentence!!}</th>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-danger text-center"></td>
-                                                <td>{!!$question->options!!}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div>
+                                        <p>{{$question->number}}. </p>{!!$question->sentence!!}
+                                    </div>
                                 </div>
                                 <div class="block-content">
                                     <div class="form-group row">

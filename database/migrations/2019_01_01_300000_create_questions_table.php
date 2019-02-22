@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->text('sentence')->nullable();
-            $table->text('options')->nullable();
+            // $table->text('options')->nullable();
             $table->integer('number')->nullable();
             $table->char('key')->nullable();
             $table->unsignedInteger('group_id');
