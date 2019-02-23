@@ -22,6 +22,16 @@ class QuestionGroupController extends Controller
 
     public function store(Request $request)
     {
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => 'required',
+            'topic' => 'required',
+            'target' => ['required', 'integer', 'min:1', 'max:6'],
+            'quantity' => ['required', 'integer', 'min:1', 'max:100'],
+            'duration' => ['required', 'integer', 'min:1', 'max:360'],
+            'type' => 'required',
+        ]);
+
         $test = new QuestionGroup;
         $test->title = $request->title;
         $test->description = $request->description;

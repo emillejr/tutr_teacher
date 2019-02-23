@@ -64,26 +64,34 @@
                             @for ($i = 1; $i <= $test->quantity ; $i++)
                             <div class="block block-rounded">
                                 <div class="block-header block-header-default">
-                                    <h3 class="block-title">{{$i}}.</h3>
+                                    <h3 class="block-title">Question <b>#{{$i}}</b> of {{$test->quantity}}</h3>
                                 </div>
                                 <div class="block-content">
                                     <div class="form-group row">
-                                        <label class="col-12" for="input_sentence_{{$i}}">Question</label>
+                                        <label class="col-12" for="input_sentence_{{$i}}">Sentence</label>
                                         <div class="col-12">
-                                            <textarea class="js-simplemde" name="input_sentence_{{$i}}" placeholder="Type your options here.."></textarea>
+                                            <textarea class="js-simplemde" name="input_sentence_{{$i}}" placeholder="Type your question and options here.."></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-12" for="input_option_{{$i}}">Options</label>
+                                        <label class="col-12" for="input_sentence_{{$i}}">Key</label>
                                         <div class="col-12">
-                                            <textarea class="js-simplemde" name="input_option_{{$i}}" placeholder="Type your options here.."></textarea>
+                                            <select class="form-control" name="input_key_{{$i}}">
+                                                <option disabled selected value>-- Select Key --</option>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                                <option value="E">E</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             @endfor
                             <!-- END Questions -->
-                            <!-- End Test -->
+
+                            <!-- Submit -->
                             <div class="block block-rounded">
                                 <div class="block-content row">
                                     <div class="col-6">
@@ -94,8 +102,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- END Submit -->
                             </form>
-                            <!-- END End Test -->
                         </div>
                     </div>
                 </div>

@@ -38,23 +38,38 @@ class QuestionController extends Controller
      */
     public function store(Request $request, $id)
     {
+        // dd('welcome');
         $inputs = $request->all();
+        // dd($inputs);
+        // $inputs = $request->validate([
+
+        // ]);
+
+
+
+
+
 
         $qty = QuestionGroup::find($id)->quantity;
+        // dd($qty);
 
         $input_keys = array_keys($inputs);
+        // dd($input_keys);
 
         $answer_keys = [];
         for ($i = 0; $i<count($input_keys); $i++)
         {
-            if (substr( $input_keys[$i], 0, 7 ) === 'input_question_')
+
+            if (substr( $input_keys[$i], 0, 15 ) == 'input_sentence_')
             {
                 $answer_keys[] = $input_keys[$i];
-                $answered_numbers[] = ltrim($input_keys[$i],'input_question_');
+                $answered_numbers[] = ltrim($input_keys[$i],'input_sentence_');
             }
         }
+        // dd($answer_keys);
         
         $keys = count($answer_keys);
+        // dd($keys);
 
         for ($i = 0; $i<$qty; $i++) // 20 times
         {
@@ -64,13 +79,16 @@ class QuestionController extends Controller
 
             $sentnc = ""; // defaultnya jawaban selalu kosong
 
-            $key = 'input_question_'.($i+1);
+            $key = 'input_sentence_'.($i+1);
             if (array_key_exists($key, $inputs))
             {    
-                $sentnc = $inputs['input_question_'.($i+1)];
+                $sentnc = $inputs['input_sentence_'.($i+1)];
             }
+            $question->key = $inputs['input_key_'.($i+1)];
 
             $question->sentence = $sentnc;
+            // dd($sentnc);
+
             $question->save();
         }
 
