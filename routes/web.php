@@ -11,17 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-
 Route::group(['middleware' => 'auth'], function () {
-	// Route::get('/', function () {
-	//     return view('welcome');
-	// });
 	Route::group(['middleware'=>'nav'], function(){
 		Route::get('/home', 'HomeController@index')->name('home');
 		Route::get('/', 'QuestionGroupController@index');
